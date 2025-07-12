@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
+
 vector<int> bfst;
+
 bool bfs(vector<int> adj[], int src, int n, int target){
     vector<int> vis(n + 1, 0);
     queue<int> q;
@@ -20,6 +22,7 @@ bool bfs(vector<int> adj[], int src, int n, int target){
     }
     return false;
 }
+
 int main(){
     ios_base::sync_with_stdio(0);
     cin.tie(0);
