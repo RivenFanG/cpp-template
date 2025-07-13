@@ -4,20 +4,19 @@ using namespace std;
 vector<int> dfst;
 bool flag = false;
 
-bool dfs(vector<int> adj[], vector<int> &vis, int src, int target){
-    if(flag) return true;
+void dfs(vector<int> adj[], vector<int> &vis, int src, int target){
+    if(flag) return;
     vis[src] = 1;
     dfst.push_back(src);
     if(src == target){
         flag = true;
-        return true;
+        return;
     }
     for(auto &i: adj[src]){
         if(!vis[i]){
             dfs(adj, vis, i, target);
         }
     }
-    return false;
 }
 
 int main(){
@@ -31,13 +30,11 @@ int main(){
         adj[v].push_back(u);
     }
     int src, goal; cin >> src >> goal;
-    if(dfs(adj, vis, src, goal)){
+    dfs(adj, vis, src, goal);
+    if(flag){
         for(auto &i : dfst) cout << i << " ";
         cout << '\n';
     }
     else cout << -1 << '\n';
     return 0;
 }
-
-
-
