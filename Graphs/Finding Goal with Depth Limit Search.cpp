@@ -4,7 +4,7 @@ using namespace std;
 vector<int> dfst;
 bool flag = false;
 
-void dfs(vector<int> adj[], vector<int> &vis, int src, int target, int limit){
+void dls(vector<int> adj[], vector<int> &vis, int src, int target, int limit){
     if(flag) return;
     if(limit < 0) return;
     vis[src] = 1;
@@ -31,7 +31,7 @@ int main(){
         adj[v].push_back(u);
     }
     int src, goal, limit; cin >> src >> goal >> limit;
-    dfs(adj, vis, src, goal, limit);
+    dls(adj, vis, src, goal, limit);
     if(flag){
         for(auto &i : dfst) cout << i << " ";
         cout << '\n';
