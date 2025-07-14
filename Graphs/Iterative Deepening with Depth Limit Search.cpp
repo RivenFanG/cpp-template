@@ -24,7 +24,6 @@ bool iddls(vector<int> adj[], int n, int src, int target){
     for(int i = 0; i <= INT_MAX; i++){
         vector<int> vis(n + 1, 0);
         dls(adj, vis, src, target, i);
-        cout << i << '\n';
         if(flag) return true;
         dfst.clear();
     }
